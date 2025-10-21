@@ -15,11 +15,13 @@ The new images likely have different characteristics than the original reference
 ### Step 1: Run Diagnostic Analysis (Required)
 **Purpose:** Understand what's different about your new images
 
-**Notebook:** `MoS2_Image_Diagnostics.ipynb`
+**Notebook:** `MoS2_Simple_Diagnostics.ipynb` ⭐ **RECOMMENDED - Bulletproof!**
+
+**Alternative:** `MoS2_Image_Diagnostics.ipynb` (has OpenCV version issues)
 
 **Instructions:**
 1. Open Google Colab
-2. Upload `MoS2_Image_Diagnostics.ipynb`
+2. Upload `MoS2_Simple_Diagnostics.ipynb`
 3. Upload your 5 new `.tif` images to `/content/images/`
 4. Run all cells
 5. Review the diagnostic visualizations
@@ -145,19 +147,25 @@ Based on typical imaging conditions:
 
 ## 📁 Files Created for You
 
-1. **`MoS2_Image_Diagnostics.ipynb`** ✅ Complete
-   - Run this first to diagnose issues
-   - Gets specific recommendations for your images
+1. **`MoS2_Simple_Diagnostics.ipynb`** ✅ **RECOMMENDED**
+   - Bulletproof diagnostic tool (no OpenCV version issues!)
+   - Visual threshold comparison
+   - Clear recommendations
 
-2. **`MoS2_Adaptive_Pipeline.ipynb`** ⚠️ Incomplete
+2. **`MoS2_Image_Diagnostics.ipynb`** ⚠️ Has bugs
+   - Advanced diagnostic with Otsu/Triangle methods
+   - OpenCV version compatibility issues
+   - Use Simple version instead
+
+3. **`MoS2_Adaptive_Pipeline.ipynb`** ⚠️ Incomplete
    - Framework created but not fully functional
    - Use manual method (Step 2B) instead
 
-3. **`diagnose_new_images.py`** ⚠️ Requires local dependencies
+4. **`diagnose_new_images.py`** ⚠️ Requires local dependencies
    - Python script version of diagnostics
    - Use Colab notebook instead
 
-4. **`QUICK_FIX_GUIDE.md`** ✅ This file
+5. **`QUICK_FIX_GUIDE.md`** ✅ This file
    - Step-by-step instructions
 
 ---
@@ -167,12 +175,12 @@ Based on typical imaging conditions:
 ```
 1. Upload images to Colab
    ↓
-2. Run MoS2_Image_Diagnostics.ipynb
+2. Run MoS2_Simple_Diagnostics.ipynb ⭐
    ↓
-3. Note recommended threshold (e.g., 165)
+3. Note recommended threshold (e.g., 107)
    ↓
 4. Update MoS2_UltraSensitive.ipynb
-   - Change intensity_threshold to 165
+   - Change intensity_threshold to 107
    - Add CLAHE if needed
    - Add bit normalization if needed
    ↓
@@ -249,12 +257,12 @@ Try these in order:
 ## 📝 Summary
 
 1. **Problem:** New images have different characteristics
-2. **Diagnosis:** Run `MoS2_Image_Diagnostics.ipynb`
+2. **Diagnosis:** Run `MoS2_Simple_Diagnostics.ipynb` ⭐
 3. **Fix:** Update threshold in `MoS2_UltraSensitive.ipynb`
 4. **Verify:** Re-run and check results
 5. **Iterate:** Fine-tune if needed
 
-**Most likely solution:** Change line 3 of Cell 2 from `140` to a value between `150-180` based on diagnostic output.
+**Most likely solution:** Change line 3 of Cell 2 from `140` to `107` based on your image statistics (25th percentile).
 
 ---
 
